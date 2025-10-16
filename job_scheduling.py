@@ -110,7 +110,7 @@ def draw_gantt(timeline, title):
             colors[name] = f"C{i}"
         gnt.broken_barh([(start, end - start)], (10, 10), facecolors=colors[name])
         gnt.text((start + end) / 2, 15, name, ha="center", va="bottom")
-    plt.savefig("gantt_chart.png")  # Save Gantt chart as PNG
+    plt.savefig("gantt_chart.png")  
     plt.show()
 
 if __name__ == "__main__":
@@ -145,17 +145,18 @@ if __name__ == "__main__":
         print("Invalid Choice")
         exit()
 
-    # Print results to console
+    
     print("\nJob\tArrival\tBurst\tPriority\tCompletion\tTurnaround\tWaiting")
     for j in result:
         print(f"{j.name}\t{j.arrival}\t{j.burst}\t{j.priority}\t\t{j.completion}\t\t{j.turnaround}\t\t{j.waiting}")
 
-    # Save console output to a text file
+    
     with open("example_output.txt", "w") as f:
         f.write("Job\tArrival\tBurst\tPriority\tCompletion\tTurnaround\tWaiting\n")
         for j in result:
             f.write(f"{j.name}\t{j.arrival}\t{j.burst}\t{j.priority}\t{j.completion}\t{j.turnaround}\t{j.waiting}\n")
 
-    # Draw and save Gantt chart
+    
     draw_gantt(timeline, title)
+
 
